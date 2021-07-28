@@ -12,42 +12,58 @@
     <link rel="stylesheet" type="text/css" href="./CSS/style.css">
     </head>
 <body>
+    <div>
+        <ul>
+            <li><a href="index.html"> Home</a></li>
+          </ul>
+    </div>
     <H1> Your Game Library</H1>
-    <h2> So you can finally find something to play</h2>
-    
+    <h3> So you can finally find something to play..</h3>
+    <br>
     <section id="postSection">
     <h3> Add a new game to your library</h3>
+    <div id=form>
     <form id="createGameForm">
-        
-        <label for="gameName" > Name: </label>
-        <input type="text" id="gameName" name="name" required>
-        
-      
-        <label for="gamePlatform"> Preferred Platform: </label>
-        <input type="text" id="gamePlatform" name="platform" required>
-       
-        
-        <label for="gameGenre"> Genre: </label>
-        <input type="text" id="gameGenre"name="genre">
-        
-        
-        <label for="gamePlayerType"> Single or Multiplayer </label>
-        <input type="text" id="gamePlayerType" name="playerType">
-        
+        <div class="row">
+        <div class="col-6">
+        <label for="gameName" class="form-label" > </label>
+        <input type="text" class="form-control" id="gameName" name="name" placeholder="Name" required>
+        </div>
+        <div class="col-6"s>
+        <label for="gamePlatform" class="form-label"></label>
+        <input type="text" class="form-control" id="gamePlatform" name="platform" placeholder="Preferred Platform" required>
+       </div>
+        </div>
+        <div class="row" >
+        <div class="col-6">
+        <label for="gameGenre" class="form-label"></label>
+        <input type="text" class="form-control" id="gameGenre" name="genre" placeholder="Genre">
+        </div>
+        <div class="col-6 ">
+        <label for="gamePlayerType" class="form-label"></label>
+        <input type="text" class="form-control" id="gamePlayerType" name="playerType" placeholder="Singleplayer? Multiplayer? Or both?">
+        </div>
+        </div>
         <br>
-        <br>
-        <button type="reset"> RESET </button>
-        <button type="submit"> SUBMIT </button>
+        <div class="col-12">
+        <button type="reset" class="btn btn-primary"> RESET </button>
+        <button type="submit" class="btn btn-primary"> SUBMIT </button>
+        </div>
     </form>
+    </div>
     </section>
     <section>
+        
         <h4> To update a game fill in the form above and click update on the game you want to change</h4>
-    </section>
-    <section id="getAllSection">
-        <h3> Welcome to your Game Library</h3>
-        <div id="getAllOutput">
+        <h5> Not sure what game you fancy, head on over to the search page for inspiration</h5>
+        <section id="getGameByName">
+            <label for="findGameByName"> Game Name: </label>
+            <input type="text" id="findGameByName" name="findGameByName">
+            <button> GET </button>
+            <div id="getByNameOutput">
 
-        </div>
+            </section>
+        </div>   
         <section id="getById">
             <label for="gameId"> Game ID: </label>
             <input type="number" id="gameId" name="game id">
@@ -55,7 +71,19 @@
             <div id="getByIdOutput">
 
             </section>
+        </div> 
+    
+    
+    </section>
+    <section id="getAllSection">
+        <h2> Welcome to your Game Library</h2>
+        <br>
+        <div id="getAllOutput" class="card-group row row-cols-3 g-1 gx-3 gy-3">
+            <div id="getByIdOutput">
+            </div>
         </div>
+        <br>
+        
         
     </section>
     <script src="index.js"></script>

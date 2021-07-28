@@ -4,8 +4,10 @@ const baseURL = "http://localhost:8081"
 
 const getAllOutput = document.querySelector("#getAllOutput");
 const getByIdOutput = document.querySelector("#getByIdOutput");
+const getByNameOutput = document.querySelector("#getByNameOutput");
 
 const gameId = document.querySelector("#gameId");
+const findGameByName = document.querySelector("#findGameByName");
 
 
 const getAllGames = () => {
@@ -20,22 +22,34 @@ const getAllGames = () => {
 }
 
 const renderGame = (game, outputDiv) => {
+        const gameColumn = document.createElement('div');
+        gameColumn.classList.add("col");
+
+        const gameCard = document.createElement("div");
+        gameCard.classList.add("card");
+        gameColumn.appendChild(gameCard);
+
         const newGame = document.createElement("div");
+        newGame.classList.add("card-body");
 
         const gameName = document.createElement("h4"); 
         gameName.innerText =game.name;
+        gameName.classList.add("card-title");
         newGame.appendChild(gameName);
 
         const gamePlatform = document.createElement("p");
         gamePlatform.innerText = `Preferred Platform: ${game.platform}`;
+        gamePlatform.classList.add("card-text");
         newGame.appendChild(gamePlatform);
 
         const gameGenre = document.createElement("p");
         gameGenre.innerText =`Genre: ${game.genre}`;
+        gameGenre.classList.add("card-text");
         newGame.appendChild(gameGenre);
 
         const gamePlayerType = document.createElement("p");
         gamePlayerType.innerText =`Single or Multiplayer: ${game.playerType}`;
+        gamePlayerType.classList.add("card-text")
         newGame.appendChild(gamePlayerType);
 
         const deleteButton = document.createElement('button');
@@ -52,11 +66,14 @@ const renderGame = (game, outputDiv) => {
         updateButton.addEventListener('click', () => updateGame(game.id));
 
         newGame.appendChild(updateButton);
+        
+        gameCard.appendChild(newGame);
 
-        outputDiv.appendChild(newGame);
+       
+        outputDiv.appendChild(gameColumn);
 }
 
-document.querySelector("section#postSection > form").addEventListener('submit', function (e) {
+document.querySelector("#createGameForm").addEventListener('submit', function (e) {
     e.preventDefault();
     
     const form = e.target;
@@ -106,11 +123,24 @@ const getGameById = () => {
     }).catch(err => console.log(err));
 }
 
+const getGameByName = () => {
+    axios.get(`${baseURL}/getByName/${findGameByName.value}`)
+    .then( res => {
+        console.log(res);
+        const games = res.data;
+      console.log(games);
+        getByNameOutput.innerHTML = "";
+        
+        games.forEach(game => renderGame(game, getByNameOutput));       
+    }).catch(err => console.log(err));
+}
+
+
 document.querySelector("section#getById > button").addEventListener('click', getGameById);
+document.querySelector("section#getGameByName > button").addEventListener('click', getGameByName);
 
 const updateGame = (id) => {
 
-    //gets each of the elements on the form and updates them
     const data = {
         name: document.getElementById("gameName").value,
         platform: document.getElementById("gamePlatform").value,
@@ -129,6 +159,10 @@ const updateGame = (id) => {
         }).catch(err => console.log(err));
 
 };
+
+
+
 getAllGames();
+
 
 
