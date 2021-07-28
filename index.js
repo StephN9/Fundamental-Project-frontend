@@ -5,9 +5,11 @@ const baseURL = "http://localhost:8081"
 const getAllOutput = document.querySelector("#getAllOutput");
 const getByIdOutput = document.querySelector("#getByIdOutput");
 const getByNameOutput = document.querySelector("#getByNameOutput");
+const getByPlatformOutput = document.querySelector("#getByPlatformOutput");
 
 const gameId = document.querySelector("#gameId");
 const findGameByName = document.querySelector("#findGameByName");
+const findGameByPlatform = document.querySelector("#findGameByPlatform");
 
 
 const getAllGames = () => {
@@ -135,9 +137,23 @@ const getGameByName = () => {
     }).catch(err => console.log(err));
 }
 
+const getGameByPlatform = () => {
+    axios.get(`${baseURL}/getByPlatform/${findGameByPlatform.value}`)
+    .then( res => {
+        console.log(res);
+        const games = res.data;
+      console.log(games);
+        getByNameOutput.innerHTML = "";
+        
+        games.forEach(game => renderGame(game, getByPlatformOutput));       
+    }).catch(err => console.log(err));
+}
+
+
 
 document.querySelector("div#getById > button").addEventListener('click', getGameById);
 document.querySelector("div#getGameByName > button").addEventListener('click', getGameByName);
+document.querySelector("div#getGameByPlatform > button").addEventListener('click', getGameByPlatform);
 
 const updateGame = (id) => {
 
