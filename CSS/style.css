@@ -11,6 +11,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: rgb(59, 56, 56);
+    border-radius: 3px;
   }
   
   li {
@@ -26,7 +27,8 @@ ul {
   }
 
   li a:hover {
-    background-color: #111;
+    background-color: rgb(114, 8, 8);
+    color: white;
   }
 
 form > input {
@@ -61,11 +63,17 @@ form > button {
     border: 2px solid black;
     border-radius: 8px;
     margin-bottom: 20px;
-   
+    background-color: #f0f0f0;
+    box-shadow: 5px 3px 10px #222;
 }
 h5 {
     margin-top: 100px;
     margin: 20px;
+}
+
+.card {
+    box-shadow: 5px 3px 10px #222;
+
 }
 
 h2 {

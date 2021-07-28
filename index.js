@@ -151,7 +151,7 @@ const getGameByPlatform = () => {
 
 
 
-document.querySelector("div#getById > button").addEventListener('click', getGameById);
+// document.querySelector("div#getById > button").addEventListener('click', getGameById);
 document.querySelector("div#getGameByName > button").addEventListener('click', getGameByName);
 document.querySelector("div#getGameByPlatform > button").addEventListener('click', getGameByPlatform);
 
@@ -161,7 +161,7 @@ const updateGame = (id) => {
         name: document.getElementById("gameName").value,
         platform: document.getElementById("gamePlatform").value,
         genre: document.getElementById("gameGenre").value,
-        playerType: document.getElementById("gamePlayerType").value
+        playerType: document.getElementById("playerType").value
     }
     
     axios.put(`${baseURL}/replaceGame/${id}`, data)
