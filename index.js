@@ -54,7 +54,7 @@ const renderGame = (game, outputDiv) => {
 
         const deleteButton = document.createElement('button');
         deleteButton.innerText = "DELETE";
-        deleteButton.classList.add("btn", "btn-primary");
+        deleteButton.classList.add("btn", "btn-secondary");
         deleteButton.addEventListener('click', () => deleteGame(game.id));
 
         newGame.appendChild(deleteButton);
@@ -62,7 +62,7 @@ const renderGame = (game, outputDiv) => {
 
         const updateButton = document.createElement(`button`);
         updateButton.innerText = "UPDATE";
-        updateButton.classList.add("btn", "btn-primary", "mx-1");
+        updateButton.classList.add("btn", "btn-secondary", "mx-1");
         updateButton.addEventListener('click', () => updateGame(game.id));
 
         newGame.appendChild(updateButton);
@@ -136,8 +136,8 @@ const getGameByName = () => {
 }
 
 
-document.querySelector("section#getById > button").addEventListener('click', getGameById);
-document.querySelector("section#getGameByName > button").addEventListener('click', getGameByName);
+document.querySelector("div#getById > button").addEventListener('click', getGameById);
+document.querySelector("div#getGameByName > button").addEventListener('click', getGameByName);
 
 const updateGame = (id) => {
 
