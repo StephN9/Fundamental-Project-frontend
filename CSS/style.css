@@ -1,0 +1,81 @@
+body {
+    text-align: center;
+    margin: 20px;
+    background-color: rgb(208, 217, 233);
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 10;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(59, 56, 56);
+    border-radius: 3px;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: rgb(114, 8, 8);
+    color: white;
+  }
+
+form > input {
+    display: block;
+}
+
+form > button {
+    text-align:left;
+}
+
+#updateInfo {
+    border-left-color: blue ;
+}
+
+#form {
+
+    width: 800px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+#getAllByOutput {
+    margin: 30px;
+    margin-bottom: 40px;
+    background-color: rgb(18, 61, 139);
+}
+
+#postSection {
+
+    margin:10px;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    box-shadow: 5px 3px 10px #222;
+}
+h5 {
+    margin-top: 100px;
+    margin: 20px;
+}
+
+.card {
+    box-shadow: 5px 3px 10px #222;
+
+}
+
+h2 {
+    margin-top: 100px;
+}
