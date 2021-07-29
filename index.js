@@ -10,11 +10,13 @@ const getByGenreOutput = document.querySelector("#getByGenreOutput");
 const getByPlayerTypeOutput = document.querySelector("#getByPlayerTypeOutput");
 
 
+
 const gameId = document.querySelector("#gameId");
 const findGameByName = document.querySelector("#findGameByName");
 const findGameByPlatform = document.querySelector("#findGameByPlatform");
 const findGameByGenre = document.querySelector("#findGameByGenre");
-const findGameByPlayerType = document.getSelection("#findGameByPlayerType");
+const findGameByPlayerType = document.querySelector("#findGameByPlayerType");
+const updateButton = document.querySelector("#updateForm");
 
 
 const getAllGames = () => {
@@ -72,6 +74,7 @@ const renderGame = (game, outputDiv) => {
         updateButton.classList.add("btn", "btn-secondary", "mx-1");
         updateButton.addEventListener('click', () => updateGame(game.id));
 
+
         newGame.appendChild(updateButton);
         
         gameCard.appendChild(newGame);
@@ -105,6 +108,7 @@ document.querySelector("#createGameForm").addEventListener('submit', function (e
 
     alert(`${form.gameName.value} has been added :)`);
 });
+
 
 const deleteGame = id => {
    
@@ -169,10 +173,10 @@ const getGameByGenre = () => {
 
 
 const getByPlayerType = () => {
-    axios.get(`${baseURL}/getByPlayerType/${findGameByPlayerType.getSelection}`)
+    axios.get(`${baseURL}/getByPlayerType/${findGameByPlayerType.value}`)
     .then( res => {
         console.log(res);
-        const games = res.getSelection;
+        const games = res.data;
       console.log(games);
       getByPlayerTypeOutput.innerHTML = "";
         
