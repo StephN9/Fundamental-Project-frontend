@@ -88,9 +88,7 @@ h1 {
 
 
 #ScrollNavBar {
-    position: fixed;
     align-items: center;
-    width: 90%;
     top: 10px;
     border-radius: 8px;
     margin-bottom: 15px;
