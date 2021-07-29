@@ -6,10 +6,15 @@ const getAllOutput = document.querySelector("#getAllOutput");
 const getByIdOutput = document.querySelector("#getByIdOutput");
 const getByNameOutput = document.querySelector("#getByNameOutput");
 const getByPlatformOutput = document.querySelector("#getByPlatformOutput");
+const getByGenreOutput = document.querySelector("#getByGenreOutput");
+const getByPlayerTypeOutput = document.querySelector("#getByPlayerTypeOutput");
+
 
 const gameId = document.querySelector("#gameId");
 const findGameByName = document.querySelector("#findGameByName");
 const findGameByPlatform = document.querySelector("#findGameByPlatform");
+const findGameByGenre = document.querySelector("#findGameByGenre");
+const findGameByPlayerType = document.getSelection("#findGameByPlayerType");
 
 
 const getAllGames = () => {
@@ -143,17 +148,47 @@ const getGameByPlatform = () => {
         console.log(res);
         const games = res.data;
       console.log(games);
-        getByNameOutput.innerHTML = "";
+        getByPlatformOutput.innerHTML = "";
         
         games.forEach(game => renderGame(game, getByPlatformOutput));       
     }).catch(err => console.log(err));
 }
+
+const getGameByGenre = () => {
+    axios.get(`${baseURL}/getByGenre/${findGameByGenre.value}`)
+    .then( res => {
+        console.log(res);
+        const games = res.data;
+      console.log(games);
+        getByGenreOutput.innerHTML = "";
+        
+        games.forEach(game => renderGame(game, getByGenreOutput));       
+    }).catch(err => console.log(err));
+}
+
+
+
+const getByPlayerType = () => {
+    axios.get(`${baseURL}/getByPlayerType/${findGameByPlayerType.getSelection}`)
+    .then( res => {
+        console.log(res);
+        const games = res.getSelection;
+      console.log(games);
+      getByPlayerTypeOutput.innerHTML = "";
+        
+        games.forEach(game => renderGame(game, getByPlayerTypeOutput));       
+    }).catch(err => console.log(err));
+}
+
+
 
 
 
 // document.querySelector("div#getById > button").addEventListener('click', getGameById);
 document.querySelector("div#getGameByName > button").addEventListener('click', getGameByName);
 document.querySelector("div#getGameByPlatform > button").addEventListener('click', getGameByPlatform);
+document.querySelector("div#getGameByGenre > button").addEventListener('click', getGameByGenre);
+document.querySelector("div#getByPlayerType > button").addEventListener('click', getByPlayerType);
 
 const updateGame = (id) => {
 
