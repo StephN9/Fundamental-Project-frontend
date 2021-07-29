@@ -27,17 +27,21 @@ ul {
   }
 
   li a:hover {
-    background-color: rgb(114, 8, 8);
+    background-color: rgb(122, 39, 39);
     color: white;
   }
 
 form > input {
     display: block;
+    box-shadow: 5px 3px 10px #222;
 }
+
 
 form > button {
     text-align:left;
+    box-shadow: 5px 3px 10px #222;
 }
+
 
 #updateInfo {
     border-left-color: blue ;
