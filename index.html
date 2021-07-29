@@ -100,11 +100,11 @@
                 <div class="col-5">
                     <div class="input-group mb-3" id="getByPlayerType">
                         <label for="findGameByPlayerType" class="form-label"></label>
-                        <select class="form-control" id="findGameByPlayerType"
-                            placeholder="Do you want a single player or multiplayer game?" name="findGameByPlayerType">
-                            <option selected>Singleplayer</option>
-                            <option>Multiplayer</option>
-                            <option>Both</option>
+                        <select class="form-control" id="findGameByPlayerType" size="1" name="findGameByPlayerType">
+                            <option value="" selected>Do you want singleplayer or multiplayer?</option>
+                            <option value="Singleplayer"> Singleplayer</option>
+                            <option value="Multiplayer">Multiplayer</option>
+                            <option value="Both">Both</option>
                         </select>
                         <button class="btn btn-secondary" id="button-addon2"> GET </button>
                     </div>

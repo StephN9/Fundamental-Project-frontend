@@ -15,7 +15,7 @@ const gameId = document.querySelector("#gameId");
 const findGameByName = document.querySelector("#findGameByName");
 const findGameByPlatform = document.querySelector("#findGameByPlatform");
 const findGameByGenre = document.querySelector("#findGameByGenre");
-const findGameByPlayerType = document.getSelection("#findGameByPlayerType");
+const findGameByPlayerType = document.querySelector("#findGameByPlayerType");
 const updateButton = document.querySelector("#updateForm");
 
 
@@ -173,10 +173,10 @@ const getGameByGenre = () => {
 
 
 const getByPlayerType = () => {
-    axios.get(`${baseURL}/getByPlayerType/${findGameByPlayerType.getSelection}`)
+    axios.get(`${baseURL}/getByPlayerType/${findGameByPlayerType.value}`)
     .then( res => {
         console.log(res);
-        const games = res.getSelection;
+        const games = res.data;
       console.log(games);
       getByPlayerTypeOutput.innerHTML = "";
         
